@@ -44,6 +44,8 @@ jobs:
         uses: tomwhross/write-good-action@v1.6
       # with:
       #   directory: "manuscript" # Optional, uncomment to specify a directory to scan
+        with:
+         directory: "report_3"
     # Use the output from the `write-good` step
       - name: Get the write-good output
         run: echo "${{ steps.write-good.outputs.result }}"
