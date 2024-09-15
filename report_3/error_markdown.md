@@ -5,7 +5,7 @@
 
 使用这个项目非常简单，只需运行以下命令即可：
 
-```python
+``python
 import my_project
 
 my_project.run()
