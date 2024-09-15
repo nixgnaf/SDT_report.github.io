@@ -39,9 +39,14 @@ jobs:
       #- name: ShellCheck        
        # uses: ludeeus/action-shellcheck@2.0.0
 
-      - name: Lint Markdown              
+      - name: write-good action step
+        id: write-good
         uses: tomwhross/write-good-action@v1.6
-                      
+      # with:
+      #   directory: "manuscript" # Optional, uncomment to specify a directory to scan
+    # Use the output from the `write-good` step
+      - name: Get the write-good output
+        run: echo "${{ steps.write-good.outputs.result }}"
       - name: Post comment
         uses: mshick/add-pr-comment@v1
         if: ${{ steps.write-good.outputs.result }}
@@ -51,5 +56,4 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
           allow-repeats: false # This is the default
-
 
